@@ -1,0 +1,93 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.preloader {
+    animation: rotate 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+.preloader span {
+    height: 64px;
+    width: 64px;
+    display: block;
+    position: absolute;
+    background: #3fc1f2;
+    border: 1px solid #3fc1f2;
+    border-radius: 50%;
+}
+
+.preloader span:nth-child(1) {
+    /* cubic-bezier函数定义了贝塞尔曲线
+    cubic-bezier(x1,y1,x2,y2)
+    而贝塞尔曲线由4个点p0,p1,p2,p3定义，其中p0代表初始时间和初始状态，p3代表最终时间和最终状态，p1为(x1,y1);p2为(x2,y2)
+    */
+    transform: translate(-28px, -28px);
+    animation: shape_1 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+.preloader span:nth-child(2) {
+    transform: translate(28px, -28px);
+    animation: shape_2 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+.preloader span:nth-child(3) {
+    position: relative;
+    border-radius: 0;
+    transform: scale(0.98) rotate(-45deg);
+    animation: shape_3 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+@keyframes rotate {
+    50% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+@keyframes shape_1 {
+    60% {
+        transform: scale(0.4);
+    }
+}
+
+@keyframes shape_2 {
+    40% {
+        transform: scale(0.4);
+    }
+}
+
+@keyframes shape_3 {
+    50% {
+        border-radius: 50%;
+        transform: scale(0.5) rotate(-45deg);
+    }
+
+    100% {
+        transform: scale(0.98) rotate(-45deg);
+    }
+}
+
+.container .shadow {
+    background: #d9d9d9;
+    display: block;
+    width: 64px;
+    height: 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 50%;
+    position: relative;
+    top: 30px;
+    animation: shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+@keyframes shadow {
+    50% {
+        border-color: #f2f2f2;
+        transform: scale(0.6);
+    }
+}
